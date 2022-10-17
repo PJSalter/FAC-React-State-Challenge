@@ -1,10 +1,13 @@
 import dishes from "./data.js";
+import FilterCategory from "./FilterCategory.jsx";
 import FilterPrice from "./FilterPrice.jsx";
+import { useState } from "react";
 
 // Get all unique categories from the array of dishes
-const categories = [...new Set(dishes.map((dish) => dish.category))];
+// const categories = [...new Set(dishes.map((dish) => dish.category))];
 
 function App() {
+  const [category, setCategory] = useState("all");
   return (
     <main>
       <section aria-label="filters">
@@ -13,19 +16,7 @@ function App() {
           <form>
             <h2>Filter dishes</h2>
             <FilterPrice />
-            <fieldset>
-              <legend>Category</legend>
-              <label htmlFor="all">
-                <input type="radio" name="categories" id="all" value="all" />
-                all
-              </label>
-              {categories.map((c) => (
-                <label htmlFor={c} key={c}>
-                  <input type="radio" name="categories" id={c} value={c} />
-                  {c}
-                </label>
-              ))}
-            </fieldset>
+            <FilterCategory category={category} setCategory={setCategory} />
           </form>
         </div>
       </section>
