@@ -1,4 +1,5 @@
 import dishes from "./data.js";
+import FilterPrice from "./FilterPrice.jsx";
 
 // Get all unique categories from the array of dishes
 const categories = [...new Set(dishes.map((dish) => dish.category))];
@@ -11,19 +12,7 @@ function App() {
           <h1>Burger Place</h1>
           <form>
             <h2>Filter dishes</h2>
-            <fieldset>
-              <legend>Price</legend>
-              <label htmlFor="max-price">
-                Max price
-                <input
-                  type="range"
-                  id="max-price"
-                  min="0.5"
-                  max="9"
-                  step="0.25"
-                />
-              </label>
-            </fieldset>
+            <FilterPrice />
             <fieldset>
               <legend>Category</legend>
               <label htmlFor="all">
