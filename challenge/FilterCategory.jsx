@@ -13,10 +13,6 @@ export default function FilterCategory({ category, setCategory }) {
   return (
     <fieldset>
       <legend>Category</legend>
-      <label htmlFor="all">
-        <input type="radio" name="categories" id="all" value="all" />
-        all
-      </label>
       {categories.map((c) => (
         <label htmlFor={c} key={c}>
           <input
