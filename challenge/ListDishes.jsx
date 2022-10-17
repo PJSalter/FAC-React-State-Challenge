@@ -1,9 +1,10 @@
 import dishes from "./data.js";
 
-export default function ListDishes({ max }) {
+export default function ListDishes({ max, category }) {
   return (
     <ul className="grid">
       {dishes
+        .filter((dish) => category === "all" || dish.category === category)
         .filter((dish) => dish.price <= max)
         .map((dish) => (
           <li key={dish.id} className="card">
