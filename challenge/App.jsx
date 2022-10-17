@@ -8,6 +8,7 @@ import ListDishes from "./ListDishes.jsx";
 // const categories = [...new Set(dishes.map((dish) => dish.category))];
 
 function App() {
+  const [max, setMax] = useState(9);
   const [category, setCategory] = useState("all");
   return (
     <main>
@@ -16,13 +17,13 @@ function App() {
           <h1>Burger Place</h1>
           <form>
             <h2>Filter dishes</h2>
-            <FilterPrice />
+            <FilterPrice max={max} setMax={setMax} />
             <FilterCategory category={category} setCategory={setCategory} />
           </form>
         </div>
       </section>
       <section aria-label="dishes">
-        <ListDishes />
+        <ListDishes max={max} />
       </section>
     </main>
   );
