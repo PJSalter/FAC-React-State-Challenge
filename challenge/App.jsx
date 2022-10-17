@@ -23,7 +23,7 @@ function App() {
         </div>
       </section>
       <section aria-label="dishes">
-        <ListDishes max={max} />
+        <ListDishes max={max} category={category} />
       </section>
     </main>
   );
